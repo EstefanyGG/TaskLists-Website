@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+
+<!-- to show all the tasks-->
+<h1 align="center">Tasks</h1>
+<!--bootstrap class-->
+<ul class="list-group list-group-flush" id="tasks">
+    <!--loop through user tasks from model.py to display all tasks-->
+    {% for task in user.tasks %}
+    <li class="list-group-item">
+      <!--   <input type="checkbox" class="form-check-input" id="complete">
+        <label class="form-check-label" for="complete"> -->
+
+        <h2 align="left"> {{ task.title }}</h2>
+        {{ task.data }}
+        <h3 style="font-size:10px;">Created: {{ task.date }}   Due Date: {{ task.dueDate }}</h3>
+        {% if task.complete == False %}
+            <span class="ui gray label">Incomplete</span>
+        {% else %}
+            <span class="ui green label">Completed</span>
+        {% endif %}
+        
+        <a  class="ui" href="/update/{{ task.id }}"> Complete Task </a>
+        <!--to delete task/task using some javascript
+        on the click it will call the function delete task with
+        the task id associated with task--> 
+        <button type="button" class="close" onClick="deleteTask({{ task.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+
+<form method="POST">
+    <textarea name ="title" id="title" class="form-control" placeholder="Task Title"></textarea>
+    <textarea name="task" id="task" class="form-control" placeholder="Task"></textarea>
+    <br />
+    <div align="center">
+        <!-- user input date and time of task completion -->
+        <form method="POST">
+            <label for="end">Due date:</label>
+            <input type="datetime-local" id="task-end" name="task-end"
+                min="2022-01-01T00:00" max="2050-12-31T00:00">
+        </form>
+        
+        <form id = "uploadbanner" method = "post" action = "#">
+            <input id = "fileupload" type = "file" />
+      </form>
+
+        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+</form>
+{% endblock %}

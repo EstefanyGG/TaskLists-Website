@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+<!-- extends base template, overrides title block 
+from base eveerything else stays the same   -->
+{% block title %}Sign Up{% endblock %}
+ <!-- Able to use these  classes because
+of base.html added links from scripts of css framwork 
+bootstrap-->
+
+{% block content %}
+<!--sign up template, send post request to backend-->
+<form method="POST">
+    <h3 align="center">Sign Up</h3> 
+    <!--bootstrap class Form group1 -->
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <!-- name of attributes -->
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email"/>
+    </div>
+    <!-- form group 2 -->
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="firstName" 
+            name="firstName" 
+            placeholder="Enter first name"/>
+    </div>
+    <!-- form group 3 -->
+    <div class="form-group">
+        <label for="password1">Password</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password1" 
+            name="password1" 
+            placeholder="Enter password"/>
+    </div>
+
+    <!-- form group 4 -->
+    <div class="form-group">
+        <label for="password2">Password (Confirm)</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password2" 
+            name="password2" 
+            placeholder="Confirm password"/>
+    </div>
+     <!-- break line to seperate button, makes blue button -->
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

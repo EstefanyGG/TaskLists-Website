@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+<!-- extends base template, overrides title block 
+from base eveerything else stays the same   -->
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<!-- Post used in order to post login information -->
+<form method="POST">
+    <h3 align="center">Login</h3> 
+    <!--bootstrap class Form group1 -->
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <!-- name of attributes -->
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email"/>
+    </div>
+    <!-- form group 2 -->
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            placeholder="Enter password"/>
+    </div>
+     <!-- break line to seperate button, makes blue button -->
+    <br />
+    <!-- the btn class is a bootstrap class -->
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}
