@@ -1,10 +1,10 @@
-Setup & Installtion
+# Setup & Installtion
 
 pip install flask
 pip install Flask-SQLAlchemy
 pip install flask-login
 
 
-Running The App
+# Running The App
 
 python main.py
